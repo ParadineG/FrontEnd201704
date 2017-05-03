@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
 body {
-    align-self: center;
     
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: 
+   
 }
 
 .kell {
@@ -20,6 +23,13 @@ body {
     background-repeat: no-repeat;*/
     padding: 30px 0px 0px 30px;
 }
+#logo img{
+    width: 150px;
+    /*height: 100px;*/
+    background-repeat: no-repeat;
+    padding: 30px 0px 0px 30px;
+}
+
 
 #pilt {
     width: 800px;
@@ -31,20 +41,27 @@ body {
 #pakend{
    
       background-color: #f2f0f0 ;
-    max-width: 1024px;
-    align-content: center;
-    margin-top: 75px;
-    padding: 25px 50px 75px 100px;
+    width: 100%;
+     text-align: center;
+    /*margin-top: 75px;
+    padding: 25px 50px 75px 100px;*/
     font-size: 1.25em;
     font-family: 'PT Sans', sans-serif;
-  
-
 }
+
+#pakend img{
+    display: block;
+    margin: auto;
+    width: 500px;
+    padding: 25px 50px 75px 100px;
+}
+
+
 
 #artikkel{
     background-color: #f2f0f0 ;
     max-width: 1024px;
-    align-content: center;
+    align-items: center;
     margin-top: 75px;
     padding: 25px 50px 75px 100px;
     font-size: 1.25em;
@@ -60,9 +77,10 @@ body {
 
 #kontakt{
      background-color: #f2f0f0;
-    max-width: 1024px;
+    /*max-width: 1024px;*/
+    width: 100%;
     text-align: center;
-    margin-top: 75px;
+    /*margin-top: 75px;       -- tekitab valge vahe kahe osa vahele -pakend ja kontakt*/
     padding: 25px 50px 75px 100px;
     font-size: 1em;
     font-family: 'PT Sans', sans-serif;
