@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <!--SEO: ideaalne pikkus 6 sõna -->
     <title> Tarkvaraarenduse Front-end kursuse kodutöö</title>
- <link rel="icon" href="styles/Favicons.favicon.ico" sizes="16x16">
+ <link src="icon" href="styles/Favicons/favicon.ico" sizes="16x16">
 
     <!--CSS kujunduse failiga seos -->
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
     <!--JavaScript interaktsioonide failiga seos -->
-    <link rel="script" href="scripts/script.js">
+    <script rel= "script" href="scripts/script.js"></script>
 
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -21,9 +21,9 @@
 <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
 <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="styles/Favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="styles/Favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="styles/Favicons/favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -45,7 +45,10 @@ document.getElementById('pilt').setAttribute('src', 'Pildid.Wrap.png');
 </script>
 </head>
 
-<header>
+
+
+<body>
+    <header>
 
 <p> Tänane kuupäev:
     <script type="text/javascript">
@@ -70,8 +73,11 @@ var s=today.getSeconds();
 m=checkTime(m);
 s=checkTime(s);
 document.getElementById('kell').innerHTML=h+":"+m+":"+s;
-t=setTimeout('startTime()',500);
+t=setTimeout(startTime,500);
 }
+startTime();
+
+
 function checkTime(i)
 {
 if (i<10)
@@ -82,10 +88,8 @@ return i;
 }
 
 </script></p>
-      
-       
+             
 </header>
-<body>
 <h1>Front-end arenduse kursus 19.04. - 12.05.2017</h1>
 
 <p><a href="http://www.koolitus.ee/et/component/itk/c1881/ITK-497-Tarkvaraarenduse-Front-end?Itemid=199/">Programm</a></p>
@@ -192,6 +196,8 @@ objForm.addEvent("submit",
 </div>
 </form>
 <!--Kopitud koodi lõpp_ühelt lehelt registreerimisvormi koodi prooviks-->
+<br>
+<br>
 
 </body>
  <footer>
