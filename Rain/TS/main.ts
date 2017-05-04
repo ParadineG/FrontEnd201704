@@ -21,15 +21,20 @@ class Loomad {
 let olendid = new Loomad();
 olendid.kuvaLoomad();
 
-function getPage() {
+//
+
+async function getPage(file : string, id : string) {
+    let loomHTML: string = "";
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
         if(this.readyState === 4 && this.status === 200 ) {
-            document.getElementById("wrapper").innerHTML =
-            this.responseText;
+            loomHTML = this.responseText;
         }
     }
-xmlhttp.open("GET", "loom.htm", true);
-xmlhttp.send();
+xmlhttp.open("GET", file, false);
+await xmlhttp.send();
+document.getElementById(id).innerHTML = loomHTML;
 }
-getPage();
+getPage("loom.htm", "wrapper");
+getPage("loom.htm", "id1");
+getPage("loom.htm", "id2");
