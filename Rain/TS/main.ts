@@ -20,3 +20,16 @@ class Loomad {
 }
 let olendid = new Loomad();
 olendid.kuvaLoomad();
+
+function getPage() {
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if(this.readyState === 4 && this.status === 200 ) {
+            document.getElementById("wrapper").innerHTML =
+            this.responseText;
+        }
+    }
+xmlhttp.open("GET", "loom.htm", true);
+xmlhttp.send();
+}
+getPage();
