@@ -2,21 +2,11 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"> 
+
     <!--SEO: ideaalne pikkus 6 sõna -->
 	<title>Lorem Ipsum mi dolor sit amet</title>
     
     <link rel="icon" href="styles/favicons/favicon.ico" sizes="16x16">
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-    crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
     <!-- BEGIN optional SEO --> <!--SEO: ideaalne pikkus umbes 155 tähemärki -->
         <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ipsum libero, efficitur ut condimentum a, lacinia non eros. In vel vulputate lectus." />
@@ -56,17 +46,9 @@
         <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
     </video>
     <div id="wrapper">
-        <div id="kalk">
-            <var>
-                X: <input id="sisend1" type="numbers"/>
-            </var>+
-            <var>
-                Y: <input id="sisend2" type="numbers"/>
-            </var>=
-            <span id="vastus"></span>
-            <a id="nupp" href="#" class="button">Nuppuke</a>
-            <a href="#" class="button btn disabled" role="button">Nuppuke</a>
-        </div>
+        <div>
+            <a href="#" class="button">Nuppuke</a>
+                    </div>
         <nav id="esimene">
             <ul>
                 <li>
@@ -83,9 +65,8 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <ul class="nav nav-pills">
+        <nav  id="teine">
+            <ul>
                 <li>
                 <a href="../../Andrjus/SimpleHTML/index.html">Andrjuse leht</a>
                 </li>
@@ -99,7 +80,6 @@
                     <a href="/">Pealehele</a>
                 </li>
             </ul>
-        </div>
         </nav>
         <!--<div id="menuuTyhiAla"></div>-->
         <main>
@@ -109,25 +89,7 @@
                 <br><time datetime="2010-07-30" itemprop="datePublished">30-nes juuli 2010</time>
                 <blockquote>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</blockquote>
                 <blockquote>"Ei ole ka kedagi, kes armastab ja otsib ja tahab valu iseennast, lihtsalt sellepärast, et see on valu..."</blockquote>
-                <h2 lang="et">Strong, em, mark, ins ja del</h2>
-                    <ul lang="et">
-                        <li>
-                            <strong><code>&lt;strong&gt;</code></strong> on parem kui <code>&lt;b&gt;</code>
-                        </li>
-                        <li>
-                            <em><code>&lt;em&gt;</code></em> on parem kui <code>&lt;i&gt;</code>
-                        </li>
-                        <li>
-                            <mark><code>&lt;mark&gt;</code></mark> on parem kui <code>&lt;span&gt;</code>
-                        </li>
-                        <li>
-                            <ins><code>&lt;ins&gt;</code></ins> on parem kui <code>&lt;u&gt;</code>
-                        </li>
-                        <li>
-                            <del><code>&lt;del&gt;</code></del> on parem kui <code>&lt;s&gt;</code>
-                        </li>
-                    </ul>
-                </h2>
+
                 <p itemprop="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla lacus, volutpat commodo vehicula hendrerit, faucibus non odio. Nam venenatis sagittis facilisis. Integer quam leo, aliquet sit amet ultricies ut, pretium et lacus. Fusce gravida tincidunt ante at finibus. Integer quam urna, mattis a consectetur nec, elementum quis elit. Morbi molestie, nisi quis iaculis euismod, est augue pellentesque sapien, vel laoreet est sapien eget mi. Nulla facilisi. Donec ac ligula eu mauris rhoncus varius. Morbi convallis lacus ligula, a aliquet enim sodales in. Suspendisse potenti. Phasellus accumsan dui elementum massa porta, ac tincidunt lacus volutpat.</p>
 
                 <p>Praesent placerat volutpat tincidunt. Maecenas viverra dui vel enim sodales, a posuere dolor vehicula. Duis dictum ipsum urna, at mollis ligula semper sed. Integer fermentum quam sed pellentesque sodales. Etiam rutrum laoreet mi, in vulputate tellus. Nunc aliquet commodo auctor. Sed interdum, lectus interdum rhoncus feugiat, ex nibh eleifend justo, eget pharetra urna lectus eu lorem. Nam consequat augue eu lectus pretium pharetra. Etiam id lectus nisi. Cras ante augue, varius vel pharetra fermentum, consectetur vel lorem. Suspendisse lobortis sagittis viverra. In sit amet ante quis nisl maximus congue et eget urna. Cras at facilisis urna. Aenean vehicula tortor mi, eu pulvinar purus dignissim non. Nullam eleifend, dui eget pulvinar consequat, tortor tellus luctus erat, eget suscipit mauris turpis quis felis. Vestibulum dapibus, magna interdum mollis semper, elit velit gravida sapien, eget efficitur tortor eros rutrum ex.</p>
@@ -137,7 +99,7 @@
                 <p class="paragrahv">In id faucibus justo. Aliquam ac varius metus. Proin sed sem auctor, faucibus eros et, facilisis ipsum. Curabitur semper sapien lorem, venenatis rutrum dui accumsan fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam imperdiet, nunc ut porta finibus, purus urna rutrum felis, vitae posuere felis lectus ac nisl. Mauris tempus magna sit amet luctus bibendum. Duis odio neque, suscipit quis orci sed, dapibus mattis felis. Nam euismod quam nec sapien pharetra, sed pellentesque tellus euismod. Nulla interdum viverra enim eget efficitur.</p>
 
                 <p class="paragrahv"> Cras sodales sem a metus interdum finibus. Nam risus nisl, tincidunt ac est non, pulvinar porttitor purus. Nulla dui odio, feugiat quis dui eu, facilisis tempor metus. Quisque mattis, nisl id eleifend porttitor, ante magna lobortis ligula, sed maximus nulla risus id massa. Aenean non nunc purus. Vestibulum sit amet nulla auctor, congue mauris non, placerat lacus. Morbi vitae odio elit. Mauris ut facilisis arcu.</p>
-                <table class="table">
+                <table>
                     <caption>Raskused</caption>
                     <thead>
                         <tr>

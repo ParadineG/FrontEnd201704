@@ -1,0 +1,14 @@
+#controls {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  background-color: white;
+}
+
+#controls ul {
+  margin-top: 20px;
+}
+
+#content {
+  margin: 50px 50px 50px 150px;
+}

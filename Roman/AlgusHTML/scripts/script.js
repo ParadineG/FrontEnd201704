@@ -389,3 +389,55 @@ function key(event){
 };
 muutujad[0].addEventListener("keydown", key);
 muutujad[1].addEventListener("keydown", key);
+
+/* callback */
+function funk2(){
+    console.log('Hello');
+}
+function funk(callback){
+    callback();
+}
+funk(funk2);
+//ECMAscript 6
+(function(){
+    const PI = 3.14;
+    if(true){
+        var myvar = 'ee';
+        let mylet = 'ee';
+        //PI += 1;
+    }
+    myvar += 'ss';
+    //mylet += 'ss';
+    //console.log(myvar + " " + mylet);
+
+    //destruktureerimine
+    let foo = {
+        bar: 1,
+        baz: 2
+    };
+    let {bar, baz} = foo;
+    let tenses = ['me', 'you', 'him', 'her'];
+    let [first, sec, third] = tenses;
+
+    let s6ne = `Tere minu nimi on ${first} ja olen ${sec} aastane`;
+    console.log(s6ne);
+    /*
+    ürituste registreerimine
+    pildi galerii
+    veebilehe jagamine
+    analytiku yhendamine
+    captcha
+    meiliaadress jsis
+    serverisse vormi saatmine
+    interaktiivse menüü loomine
+    css animation on mouse over
+    simple game
+    moduleeritud osad
+    */
+
+    /*
+    html - media, tekst, struktrueeritud
+    css - tausta määramine, font, viisakas näeks välja
+    js - tegevus mis toimub nuppuvajutusel, kellaaja kuvamine
+    */
+})();
