@@ -22,8 +22,8 @@ let olendid = new Loomad();
 olendid.kuvaLoomad();
 
 //
-
-async function getPage(file : string, id : string) {
+let nimekiri: HTMLElement[] = [];
+async function getPage(file : string, loomaNimi: string) {
     let loomHTML: string = "";
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
@@ -33,8 +33,21 @@ async function getPage(file : string, id : string) {
     }
 xmlhttp.open("GET", file, false);
 await xmlhttp.send();
-document.getElementById(id).innerHTML = loomHTML;
+let li = document.createElement('li');
+li.innerHTML = loomHTML;
+li.getElementsByTagName('span').item(0).innerText = loomaNimi;
+nimekiri.push(li);
+//document.getElementById("wrapper").innerHTML = loomHTML;
 }
+function loop() {
+nimekiri.forEach((v: HTMLElement)=>{
+    document.getElementById("wrapper").innerHTML += v;
+    
+});
+}
+
+
 getPage("loom.htm", "wrapper");
 getPage("loom.htm", "id1");
 getPage("loom.htm", "id2");
+loop();

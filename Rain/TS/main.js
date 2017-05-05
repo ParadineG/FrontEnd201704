@@ -56,9 +56,10 @@ var Loomad = (function () {
 var olendid = new Loomad();
 olendid.kuvaLoomad();
 //
-function getPage(file, id) {
+var nimekiri = [];
+function getPage(file, loomaNimi) {
     return __awaiter(this, void 0, void 0, function () {
-        var loomHTML, xmlhttp;
+        var loomHTML, xmlhttp, li;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -73,13 +74,22 @@ function getPage(file, id) {
                     return [4 /*yield*/, xmlhttp.send()];
                 case 1:
                     _a.sent();
-                    document.getElementById(id).innerHTML = loomHTML;
+                    li = document.createElement('li');
+                    li.innerHTML = loomHTML;
+                    li.getElementsByTagName('span').item(0).innerText = loomaNimi;
+                    nimekiri.push(li);
                     return [2 /*return*/];
             }
         });
     });
 }
+function loop() {
+    nimekiri.forEach(function (v) {
+        document.getElementById("wrapper").innerHTML += v;
+    });
+}
 getPage("loom.htm", "wrapper");
 getPage("loom.htm", "id1");
 getPage("loom.htm", "id2");
+loop();
 //# sourceMappingURL=main.js.map
