@@ -1,10 +1,16 @@
+//tsc --init   -- teeb valmis tsconfig.json faili
 {
     "compilerOptions": {
         "target": "es5",
         "strictNullChecks": false,
         "sourceMap": true,
-        "baseUrl": ".",
-        "lib": ["dom", "es5", "es2015.promise"]      
+        "baseUrl": "./app",
+        "lib": ["dom", "es5", "es2015.promise"],
+        "outFile": "./app.js"      
         
-    }
+    },
+    "compileOnSave": true,
+    "exclude": [
+        "node_modules"
+    ]
 }
