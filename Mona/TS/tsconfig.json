@@ -3,6 +3,12 @@
 "target": "es5",
 "strictNullChecks": false, 
 "sourceMap": true,
-"baseUrl": "."
-}
+"baseUrl": "./app/",
+"lib" : ["dom", "es5", "es2015.promise"],
+"outFile": "./app.js"
+},
+"compileOnSave": true,
+"exclude": [
+    "node_modules"
+]
 }
