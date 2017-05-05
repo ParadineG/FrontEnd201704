@@ -40,13 +40,37 @@ console.log("animals.ts");
 var Animals = (function () {
     function Animals() {
         this._animals = ['Karu', 'Kass', 'Hunt'];
+        this._cacheDOM();
+        this._bindEvents();
+        this._render();
     }
+    Animals.prototype._cacheDOM = function () {
+        this._template = Helper.getHTMLTemplate("animal_template.htm");
+        this._animalsModule = document.getElementById('animalsModule');
+        this._button = this._animalsModule.getElementsByClassName('button').item(0);
+        this._input = this._animalsModule.getElementsByTagName('input').item(0);
+        this._list = this._animalsModule.getElementsByTagName('ul').item(0);
+    };
+    Animals.prototype._bindEvents = function () {
+        this._button.addEventListener('click', this.addAnimals.bind(this));
+    };
+    //jargnev otsib sisestusest nime ja lisa see olemasolevatele nimedele
+    Animals.prototype._render = function () {
+        var _this = this;
+        var animalsHTML = "";
+        this._animals.forEach(function (value) {
+            var animalHTML = Helper.parseHTMLString(_this._template, '{{name}}', value);
+            animalsHTML += animalHTML;
+        });
+        this._list.innerHTML = animalsHTML;
+    }; //uuendab visuaalset elementi
     Animals.prototype.showAnimals = function () {
         console.log(this._animals);
     };
     Animals.prototype.addAnimals = function (name) {
-        if (name === void 0) { name = 'Koer'; }
-        this._animals.push(name); // push lisab viimasele elemendile
+        var animalName = (typeof name === 'string') ? name : this._input.value;
+        this._animals.push(animalName); // push lisab viimasele elemendile
+        this._render();
     };
     Animals.prototype.removeAnimals = function (index) {
         if (index === void 0) { index = 0; }
@@ -56,34 +80,30 @@ var Animals = (function () {
         else if (lastAnimal > index && index >= 0) {
             this._animals.splice(index, 1);
         }
+        this._render();
     };
     return Animals;
 }());
 var Helper;
 (function (Helper) {
     function getHTMLTemplate(file) {
-        return __awaiter(this, void 0, void 0, function () {
-            var templateHTML, xmlHttp;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        templateHTML = '';
-                        xmlHttp = new XMLHttpRequest();
-                        xmlHttp.onreadystatechange = function () {
-                            if (this.readyState === 4 && this.status === 200) {
-                                templateHTML == this.responseText;
-                            }
-                        };
-                        xmlHttp.open('GET', file, true);
-                        return [4 /*yield*/, xmlHttp.send()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, templateHTML];
-                }
-            });
-        });
+        var templateHTML = 'fail';
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            console.log(this.readyState);
+            if (this.readyState === 4 && this.status === 200) {
+                templateHTML = this.responseText;
+            }
+        };
+        xmlHttp.open('GET', file, false);
+        xmlHttp.send();
+        return templateHTML;
     }
     Helper.getHTMLTemplate = getHTMLTemplate;
+    function parseHTMLString(target, mustache, content) {
+        return target.replace(mustache, content);
+    }
+    Helper.parseHTMLString = parseHTMLString;
 })(Helper || (Helper = {}));
 var _this = this;
 /// <reference path="helper.ts"/>
