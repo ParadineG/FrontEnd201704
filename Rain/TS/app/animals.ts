@@ -38,7 +38,7 @@ class Animals {
 
     } //uuendab visuaalset elementi
     showAnimals(){
-        console.log(this._animals);
+        
     }
 
     addAnimals(name){
