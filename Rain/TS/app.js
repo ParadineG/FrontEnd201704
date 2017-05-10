@@ -69,16 +69,21 @@ var Helper;
     Helper.parseHTMLString = parseHTMLString;
 })(Helper || (Helper = {}));
 /// <reference path="helper.ts"/>
+/// <reference path="navigation.ts"/>
 /// <reference path="animals.ts"/> 
 // ---see määrab ära et helper.ts peaks olema enne kui animals.ts
 console.log("main.ts");
 var App = (function () {
     function App() {
         this._navLinks = [{ name: 'Pealeht', link: '#home' },
-            { name: 'Pealeht', link: '#home' },
-            { name: 'Pealeht', link: '#home' }];
+            { name: 'Galerii', link: '#gallery' },
+            { name: 'Üritus', link: '#event' }];
+        this._bindEvents();
         this._setup();
     }
+    App.prototype._bindEvents = function () {
+        window.addEventListener('hashchange', this._urlChanged.bind(this)); // vajalik menüü muutusteks
+    };
     App.prototype._setup = function () {
         if (window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
@@ -92,9 +97,18 @@ var App = (function () {
         (await Helper.getHTMLTemplate('animal_template.htm'));
         })();         ---- seda enam pole vaja */
     };
+    App.prototype._urlChanged = function (e) {
+        this._navLinks.forEach(function (value) {
+            if (window.location.hash === value.link) {
+                //
+                //
+                console.log(value.link);
+            }
+        });
+    };
     return App;
 }());
-var app = new App();
+var app = new App(); // See kutsub välja classi App ja paneb ta funktsiooni ning peidab sisu
 console.log("page.ts");
 /**
  * Page
