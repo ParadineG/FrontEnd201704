@@ -15,7 +15,7 @@ class Animals {
     private _input : HTMLInputElement;
     private _list : HTMLDListElement;
     private _cacheDOM(){
-        this._template = Helper.getHTMLTemplate("animal_template.htm");
+        this._template = Helper.getHTMLTemplate("templates/animal_template.htm");
         this._animalsModule = document.getElementById('animalsModule');
         this._button = this._animalsModule.getElementsByClassName('button').item(0) as HTMLButtonElement;
         this._input = this._animalsModule.getElementsByTagName('input').item(0);

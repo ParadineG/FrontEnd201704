@@ -10,7 +10,7 @@ var Animals = (function () {
         this._render();
     }
     Animals.prototype._cacheDOM = function () {
-        this._template = Helper.getHTMLTemplate("animal_template.htm");
+        this._template = Helper.getHTMLTemplate("templates/animal_template.htm");
         this._animalsModule = document.getElementById('animalsModule');
         this._button = this._animalsModule.getElementsByClassName('button').item(0);
         this._input = this._animalsModule.getElementsByTagName('input').item(0);
@@ -69,6 +69,40 @@ var Helper;
     Helper.parseHTMLString = parseHTMLString;
 })(Helper || (Helper = {}));
 /// <reference path="helper.ts"/>
+/**
+ * name
+ */
+var Navigation = (function () {
+    function Navigation(navs) {
+        this._navs = navs;
+        this._cacheDOM();
+        this._bindEvents();
+        this._render();
+    }
+    Navigation.prototype._cacheDOM = function () {
+        this._template = Helper.getHTMLTemplate("templates/nav_template.htm");
+        this._navModule = document.getElementById('mainMenu');
+        this._navModule.outerHTML = this._template; //kirjutame navModule Template-iga üle
+        this._navModule = document.getElementById('mainMenu'); // muudab navModule lõplikult ära
+        this._microTemplate = this._navModule.querySelector('script').innerText; // võtab teksti template seest
+        this._list = this._navModule.getElementsByTagName('ul').item(0);
+    };
+    Navigation.prototype._bindEvents = function () {
+        this._button.addEventListener('click', this.addAnimals.bind(this));
+    };
+    //jargnev otsib sisestusest nime ja lisa see olemasolevatele nimedele
+    Navigation.prototype._render = function () {
+        var _this = this;
+        var animalsHTML = "";
+        this._animals.forEach(function (value) {
+            var animalHTML = Helper.parseHTMLString(_this._template, '{{name}}', value);
+            animalsHTML += animalHTML;
+        });
+        this._list.innerHTML = animalsHTML;
+    };
+    return Navigation;
+}());
+/// <reference path="helper.ts"/>
 /// <reference path="navigation.ts"/>
 /// <reference path="animals.ts"/> 
 // ---see määrab ära et helper.ts peaks olema enne kui animals.ts
@@ -97,11 +131,12 @@ var App = (function () {
         (await Helper.getHTMLTemplate('animal_template.htm'));
         })();         ---- seda enam pole vaja */
     };
+    //saame vahetada lehekülgi
     App.prototype._urlChanged = function (e) {
         this._navLinks.forEach(function (value) {
             if (window.location.hash === value.link) {
-                //
-                //
+                //if(value.link ===)
+                //this.page = new Gallery);
                 console.log(value.link);
             }
         });

@@ -32,13 +32,13 @@ animals.showAnimals();
     }
 
 
-
+//saame vahetada lehekülgi
 _urlChanged(e){
     this._navLinks.forEach(        
         (value: NavLink) =>{
             if(window.location.hash === value.link){
-                //
-                //
+                //if(value.link ===)
+                //this.page = new Gallery);
                 console.log(value.link);
             }
         }
