@@ -97,7 +97,9 @@ var Navigation = (function () {
         this._navs.forEach(function (value) {
             var parsePass1 = Helper.parseHTMLString(_this._microTemplate, '{{name}}', value.name);
             var parsePass2 = Helper.parseHTMLString(parsePass1, '{{link}}', value.link);
-            navsLinks += parsePass2;
+            var setActive = (window.location.hash === value.link) ? ' active' : '';
+            var parsePass3 = Helper.parseHTMLString(parsePass2, '{{active}}', setActive);
+            navsLinks += parsePass3;
         });
         this._list.innerHTML = navsLinks;
     };

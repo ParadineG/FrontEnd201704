@@ -37,7 +37,10 @@ class Navigation {
             (value: NavLink) => {
                 let parsePass1 = Helper.parseHTMLString(this._microTemplate, '{{name}}', value.name);
                 let parsePass2 = Helper.parseHTMLString(parsePass1, '{{link}}', value.link);
-               navsLinks += parsePass2;
+                let setActive = (window.location.hash === value.link) ? ' active' : '';
+                let parsePass3 = Helper.parseHTMLString(parsePass2, '{{active}}', setActive);
+               navsLinks += parsePass3;
+
             }
         );
         this._list.innerHTML = navsLinks;
