@@ -1,3 +1,19 @@
 .loomklass{
     font-size: 30px;
 }
+body{
+    background-color: lightseagreen; 
+}
+.figure-img{
+    max-width: 400px;
+}
+.crop{
+    max-width: 300px;
+    max-height: 300px;
+    overflow: hidden;
+}
+.crop img{
+    width: 400px;
+    height: 400px;
+    margin: -100px 0 0 -50px;
+}
