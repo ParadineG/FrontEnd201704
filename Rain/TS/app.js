@@ -1,3 +1,13 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 console.log("animals.ts");
 /**
  * Animals
@@ -68,6 +78,66 @@ var Helper;
     }
     Helper.parseHTMLString = parseHTMLString;
 })(Helper || (Helper = {}));
+console.log("page.ts");
+/**
+ * Page
+ */
+var Page = (function () {
+    function Page() {
+    }
+    Page.prototype._cacheDOM = function () {
+    };
+    Page.prototype._bindEvents = function () {
+    };
+    Page.prototype._render = function () {
+    };
+    return Page;
+}());
+/// <reference path="helper.ts"/>
+/// <reference path="page.ts"/>
+/**
+ * Gallery extends Page
+ */
+var Gallery = (function (_super) {
+    __extends(Gallery, _super);
+    function Gallery() {
+        var _this = _super.call(this) //kutsub välja Page construktori
+         || this;
+        _this._pictures = [{ title: 'Auto', description: 'Üks auto', link: 'Auto.jpg' },
+            { title: 'Taevas', description: 'Üks Taevas', link: 'Taevas.jpg' },
+            { title: 'Taevas2', description: 'Üks Taevas2', link: 'Taevas2.jpg' },
+            { title: 'Tilgad', description: 'Tilgad', link: 'Tilgad.jpg' },
+            { title: 'Tilk', description: 'Üks Tilk', link: 'Tilk.jpg' }];
+        _this._cacheDOM();
+        _this._bindEvents();
+        _this._render();
+        return _this;
+    }
+    Gallery.prototype._cacheDOM = function () {
+        this._template = Helper.getHTMLTemplate("templates/gallery-template.htm");
+        this._picsModule = document.querySelector('main'); // otsib üles index.html-is <main> ja asendab galeriiga
+        this._picsModule.outerHTML = this._template; //kirjutame Module Template-iga üle
+        this._picsModule = document.getElementById('gallery'); // muudab picsModule lõplikult ära selles cache-s
+        this._microTemplate = this._picsModule.querySelector('script').innerText; // võtab ühe pildi template teiste template-de seest
+        this._list = this._picsModule.querySelector('#images'); //koostab listi mida kuvada
+    };
+    Gallery.prototype._bindEvents = function () {
+        // siin võiks olla pildil klikates tegevus .. (nt ava uuel lehel)
+    };
+    Gallery.prototype._render = function () {
+        var _this = this;
+        var pics = '';
+        this._pictures.forEach(function (value) {
+            var parsePass1 = Helper.parseHTMLString(_this._microTemplate, '{{caption}}', value.title);
+            var parsePass2 = Helper.parseHTMLString(parsePass1, '{{alternative}}', value.description);
+            var setActive = (window.location.hash === value.link) ? ' active' : '';
+            var parsePass3 = Helper.parseHTMLString(parsePass2, '{{source}}', 'images/' + value.link);
+            pics += parsePass3;
+        });
+        this._list.innerHTML = pics;
+    };
+    return Gallery;
+}(Page));
 /// <reference path="helper.ts"/>
 /**
  * name
@@ -110,6 +180,7 @@ var Navigation = (function () {
 }());
 /// <reference path="helper.ts"/>
 /// <reference path="navigation.ts"/>
+/// <reference path="gallery.ts"/>
 /// <reference path="animals.ts"/> 
 // ---see määrab ära et helper.ts peaks olema enne kui animals.ts
 console.log("main.ts");
@@ -140,30 +211,19 @@ var App = (function () {
     };
     //saame vahetada lehekülgi
     App.prototype._urlChanged = function (e) {
+        var _this = this;
         this._navLinks.forEach(function (value) {
             if (window.location.hash === value.link) {
-                //if(value.link ===)
-                //this.page = new Gallery);
-                console.log(value.link);
+                if (value.link === _this._navLinks[0].link)
+                    _this.page = new Gallery();
+                else if (value.link === _this._navLinks[0].link)
+                    _this.page = new Gallery();
+                else if (value.link === _this._navLinks[0].link)
+                    console.log(value.link);
             }
         });
     };
     return App;
 }());
 var app = new App(); // See kutsub välja classi App ja paneb ta funktsiooni ning peidab sisu
-console.log("page.ts");
-/**
- * Page
- */
-var Page = (function () {
-    function Page() {
-    }
-    Page.prototype._cacheDOM = function () {
-    };
-    Page.prototype._bindEvents = function () {
-    };
-    Page.prototype._render = function () {
-    };
-    return Page;
-}());
 //# sourceMappingURL=app.js.map

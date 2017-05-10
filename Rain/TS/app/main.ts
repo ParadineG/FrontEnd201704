@@ -1,5 +1,6 @@
 /// <reference path="helper.ts"/>
 /// <reference path="navigation.ts"/>
+/// <reference path="gallery.ts"/>
 /// <reference path="animals.ts"/> 
 // ---see määrab ära et helper.ts peaks olema enne kui animals.ts
 console.log("main.ts");
@@ -38,8 +39,11 @@ _urlChanged(e){
     this._navLinks.forEach(        
         (value: NavLink) =>{
             if(window.location.hash === value.link){
-                //if(value.link ===)
-                //this.page = new Gallery);
+                if(value.link === this._navLinks[0].link)
+                this.page = new Gallery();
+                else if(value.link === this._navLinks[0].link)
+                 this.page = new Gallery();
+                else if(value.link === this._navLinks[0].link)
                 console.log(value.link);
             }
         }

@@ -7,14 +7,14 @@ class Page {
       
     }
   
-    private _cacheDOM(){
+    protected _cacheDOM(){
                 
     }
-    private _bindEvents(){
+    protected _bindEvents(){
       
     }
   
-    private _render(){
+    protected _render(){
      
             }
          
