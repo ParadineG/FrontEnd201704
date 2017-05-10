@@ -20,7 +20,7 @@ class Navigation {
     private _list : HTMLUListElement;
 
  private _cacheDOM(){
-        this._template = Helper.getHTMLTemplate("templates/nav_template.htm");
+        this._template = Helper.getHTMLTemplate("templates/nav-template.htm");
         this._navModule = document.getElementById('mainMenu');
         this._navModule.outerHTML = this._template;   //kirjutame navModule Template-iga üle
         this._navModule = document.getElementById('mainMenu');  // muudab navModule lõplikult ära
@@ -28,18 +28,23 @@ class Navigation {
         this._list = this._navModule.getElementsByTagName('ul').item(0);        
     }
     private _bindEvents(){
-        this._button.addEventListener('click', this.addAnimals.bind(this));
+         window.addEventListener('hashchange', this._urlChanged.bind(this)); 
     }
-    //jargnev otsib sisestusest nime ja lisa see olemasolevatele nimedele
+    // otsib menüü kuvamiseks nimesid ja linke
     private _render(){
-        let animalsHTML = "";
-        this._animals.forEach(
-            (value: string) => {
-                let animalHTML = Helper.parseHTMLString(this._template, '{{name}}', value);
-                animalsHTML += animalHTML;
+        let navsLinks = '';
+        this._navs.forEach(
+            (value: NavLink) => {
+                let parsePass1 = Helper.parseHTMLString(this._microTemplate, '{{name}}', value.name);
+                let parsePass2 = Helper.parseHTMLString(parsePass1, '{{link}}', value.link);
+               navsLinks += parsePass2;
             }
         );
-        this._list.innerHTML = animalsHTML;
+        this._list.innerHTML = navsLinks;
+    }
+    _urlChanged(e){
+        this._render();
+    }
 
 
 

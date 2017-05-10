@@ -18,6 +18,7 @@ class App{
     _setup(){    //see redirectib lehe 0 positsiooni lingile ehk #home
         if(window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
+        let nav = new Navigation(this._navLinks);
         let animals = new Animals();
 /* animals.showAnimals();
 animals.addAnimals('lehm');

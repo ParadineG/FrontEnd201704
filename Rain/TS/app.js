@@ -80,7 +80,7 @@ var Navigation = (function () {
         this._render();
     }
     Navigation.prototype._cacheDOM = function () {
-        this._template = Helper.getHTMLTemplate("templates/nav_template.htm");
+        this._template = Helper.getHTMLTemplate("templates/nav-template.htm");
         this._navModule = document.getElementById('mainMenu');
         this._navModule.outerHTML = this._template; //kirjutame navModule Template-iga üle
         this._navModule = document.getElementById('mainMenu'); // muudab navModule lõplikult ära
@@ -88,17 +88,21 @@ var Navigation = (function () {
         this._list = this._navModule.getElementsByTagName('ul').item(0);
     };
     Navigation.prototype._bindEvents = function () {
-        this._button.addEventListener('click', this.addAnimals.bind(this));
+        window.addEventListener('hashchange', this._urlChanged.bind(this));
     };
-    //jargnev otsib sisestusest nime ja lisa see olemasolevatele nimedele
+    // otsib menüü kuvamiseks nimesid ja linke
     Navigation.prototype._render = function () {
         var _this = this;
-        var animalsHTML = "";
-        this._animals.forEach(function (value) {
-            var animalHTML = Helper.parseHTMLString(_this._template, '{{name}}', value);
-            animalsHTML += animalHTML;
+        var navsLinks = '';
+        this._navs.forEach(function (value) {
+            var parsePass1 = Helper.parseHTMLString(_this._microTemplate, '{{name}}', value.name);
+            var parsePass2 = Helper.parseHTMLString(parsePass1, '{{link}}', value.link);
+            navsLinks += parsePass2;
         });
-        this._list.innerHTML = animalsHTML;
+        this._list.innerHTML = navsLinks;
+    };
+    Navigation.prototype._urlChanged = function (e) {
+        this._render();
     };
     return Navigation;
 }());
@@ -121,6 +125,7 @@ var App = (function () {
     App.prototype._setup = function () {
         if (window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
+        var nav = new Navigation(this._navLinks);
         var animals = new Animals();
         /* animals.showAnimals();
         animals.addAnimals('lehm');
