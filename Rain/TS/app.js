@@ -60,6 +60,28 @@ var Animals = (function () {
 }());
 var Helper;
 (function (Helper) {
+    function getParameterByName(name) {
+        var url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|¤)');
+        var results = regex.exec(url);
+        if (!results)
+            return null;
+        if (!results[2])
+            return '';
+        return decodeURIComponent(results[2]).replace(/\+/g, ' ');
+    }
+    Helper.getParameterByName = getParameterByName;
+    function formatEmails(className, splitter) {
+        var emails = document.getElementsByClassName(className);
+        for (var index = 0; index < emails.length; index++) {
+            var emailParts = emails.item(index).innerHTML.split(splitter);
+            var email = emailParts[0] + '@' + emailParts[1];
+            var link = '<a href="mailto:' + email + '">' + email + '</a>';
+            emails.item(index).outerHTML = link;
+        }
+    }
+    Helper.formatEmails = formatEmails;
     function getHTMLTemplate(file) {
         var templateHTML = 'fail';
         var xmlHttp = new XMLHttpRequest();
@@ -93,6 +115,45 @@ var Page = (function () {
     };
     return Page;
 }());
+/**
+ * name
+ */
+var EventPage = (function (_super) {
+    __extends(EventPage, _super);
+    function EventPage() {
+        var _this = _super.call(this) //kutsub välja Page construktori
+         || this;
+        _this._participant = [{ name: 'Juku Kalle', joined: 'Yes' },
+            { name: 'Madis Toru', joined: 'No' },
+            { name: 'Mati Tamm', joined: 'Yes' }];
+        _this._cacheDOM();
+        _this._bindEvents();
+        _this._render();
+        return _this;
+    }
+    EventPage.prototype._cacheDOM = function () {
+        this._template = Helper.getHTMLTemplate("templates/event-template.htm");
+        this._peopleModule = document.querySelector('main'); // otsib üles index.html-is <main> ja asendab galeriiga
+        this._peopleModule.outerHTML = this._template; //kirjutame Module Template-iga üle
+        this._peopleModule = document.getElementById('event'); // muudab picsModule lõplikult ära selles cache-s
+        this._microTemplate = this._peopleModule.querySelector('script').innerText; // võtab ühe pildi template teiste template-de seest
+        this._list = this._peopleModule.querySelector('ul'); //koostab listi mida kuvada
+    };
+    EventPage.prototype._bindEvents = function () {
+        // siin võiks olla pildil klikates tegevus .. (nt ava uuel lehel)
+    };
+    EventPage.prototype._render = function () {
+        var _this = this;
+        var people = '';
+        this._participant.forEach(function (value) {
+            var parsePass1 = Helper.parseHTMLString(_this._microTemplate, '{{name}}', value.name);
+            var parsePass2 = Helper.parseHTMLString(parsePass1, '{{joined}}', value.joined);
+            people += parsePass2;
+        });
+        this._list.innerHTML = people;
+    };
+    return EventPage;
+}(Page));
 /// <reference path="helper.ts"/>
 /// <reference path="page.ts"/>
 /**
@@ -182,6 +243,7 @@ var Navigation = (function () {
 /// <reference path="navigation.ts"/>
 /// <reference path="gallery.ts"/>
 /// <reference path="animals.ts"/> 
+/// <reference path="eventPage.ts"/> 
 // ---see määrab ära et helper.ts peaks olema enne kui animals.ts
 console.log("main.ts");
 var App = (function () {
@@ -199,6 +261,7 @@ var App = (function () {
         if (window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
         var nav = new Navigation(this._navLinks);
+        this._urlChanged();
         var animals = new Animals();
         /* animals.showAnimals();
         animals.addAnimals('lehm');
@@ -210,16 +273,18 @@ var App = (function () {
         })();         ---- seda enam pole vaja */
     };
     //saame vahetada lehekülgi
-    App.prototype._urlChanged = function (e) {
+    App.prototype._urlChanged = function () {
         var _this = this;
+        Helper.formatEmails('at-email', '(ät)'); //vahetab välja (ät) ilusa @ vastu, inimesed näevad ilusti kui robotid vana (ät)
         this._navLinks.forEach(function (value) {
             if (window.location.hash === value.link) {
                 if (value.link === _this._navLinks[0].link)
+                    _this.page = new Gallery(); //
+                else if (value.link === _this._navLinks[1].link)
                     _this.page = new Gallery();
-                else if (value.link === _this._navLinks[0].link)
-                    _this.page = new Gallery();
-                else if (value.link === _this._navLinks[0].link)
-                    console.log(value.link);
+                else if (value.link === _this._navLinks[2].link)
+                    _this.page = new EventPage();
+                console.log(value.link);
             }
         });
     };

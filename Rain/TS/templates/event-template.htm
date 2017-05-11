@@ -1,0 +1,63 @@
+<main id="event" >
+    <ul id="people">
+    </ul>
+    <script id="eventTemplate" type="text/template">  
+   <li class="peopleItem">
+        <span >
+             {{name}}
+        </span>
+        <span>
+            {{joined}}
+            </span>
+
+
+</li>
+    </script>
+    <form action="" method="GET">
+        <!--
+        <fieldset>
+            <legend>AJUTINE </legend>
+                <label for="textArea">Textiala</label>
+                <textarea id="textArea" name="textArea"></textarea>
+                
+
+        </fieldset>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+
+        <label for="email2">Email2:</label>
+        <input readonly type="email2" name="email2" id="email2" value="juku@mail.ee">
+
+         <label for="color">Värv:</label>
+        <input type="color" name="color" id="color">
+
+        
+
+         <label for="pass">Parool:</label>
+        <input type="password" name="pass" id="pass">
+
+        -->
+        <fieldset>  <!-- lubab grupeerida elemente -->
+        <legend>Registreerimise vorm </legend>
+        <label for="personName">Täisnimi:</label>
+        <input required type="text" name="name" id="personName"><br>  <!-- siin personName on ainult <label>-iga sidumiseks -->
+        <label for="joined">Kas liitud</label>
+        <select id="joined" name="joined">
+            <option value="No">Ei</option>
+            <option value="Maybe">Võibolla</option>
+            <option value="Yes">Jah</option>
+
+        </fieldset>
+
+           
+
+       <input type="submit" value="Saada"> 
+      <!-- <button type="submit">Saada</button> -->
+    </form>
+
+
+
+
+
+
+</main>

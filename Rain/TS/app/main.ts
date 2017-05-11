@@ -2,6 +2,7 @@
 /// <reference path="navigation.ts"/>
 /// <reference path="gallery.ts"/>
 /// <reference path="animals.ts"/> 
+/// <reference path="eventPage.ts"/> 
 // ---see määrab ära et helper.ts peaks olema enne kui animals.ts
 console.log("main.ts");
 class App{
@@ -20,6 +21,7 @@ class App{
         if(window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
         let nav = new Navigation(this._navLinks);
+        this._urlChanged();
         let animals = new Animals();
 /* animals.showAnimals();
 animals.addAnimals('lehm');
@@ -35,15 +37,19 @@ animals.showAnimals();
 
 
 //saame vahetada lehekülgi
-_urlChanged(e){
+_urlChanged(){
+     Helper.formatEmails('at-email', '(ät)')    //vahetab välja (ät) ilusa @ vastu, inimesed näevad ilusti kui robotid vana (ät)
     this._navLinks.forEach(        
         (value: NavLink) =>{
             if(window.location.hash === value.link){
                 if(value.link === this._navLinks[0].link)
-                this.page = new Gallery();
-                else if(value.link === this._navLinks[0].link)
+                this.page = new Gallery();//
+                else if(value.link === this._navLinks[1].link)
                  this.page = new Gallery();
-                else if(value.link === this._navLinks[0].link)
+                else if(value.link === this._navLinks[2].link)
+                this.page = new EventPage();
+
+                
                 console.log(value.link);
             }
         }
