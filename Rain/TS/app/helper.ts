@@ -2,12 +2,25 @@ namespace Helper{
     export function getParameterByName(name:string){
         let url = window.location.href;
         name = name.replace(/[\[\]]/g,'\\$&');
-         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|¤)');
+         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
          let results = regex.exec(url);
          if(!results) return null;
          if(!results[2]) return '';
          return decodeURIComponent(results[2]).replace(/\+/g,' ');
     }
+
+    export function onParameterChange(callback) {                       // vaatab kas URL aadress muutub või mitte
+        var currentPage = window.location.href;
+        setInterval(()=>{
+            if(currentPage != window.location.href){
+                currentPage = window.location.href;
+                
+            }
+        }, 500 );
+
+
+    }
+
     export function formatEmails(className: string, splitter: string){  //email @ sümboli muutmine
         let emails = document.getElementsByClassName(className);
         for (var index = 0; index < emails.length; index++) {

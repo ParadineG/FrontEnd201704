@@ -22,6 +22,10 @@ class App{
             window.location.hash = this._navLinks[0].link;
         let nav = new Navigation(this._navLinks);
         this._urlChanged();
+        this._checkParams();
+        Helper.onParameterChange(()=>{
+                alert('Tere');
+        });
         let animals = new Animals();
 /* animals.showAnimals();
 animals.addAnimals('lehm');
@@ -49,11 +53,18 @@ _urlChanged(){
                 else if(value.link === this._navLinks[2].link)
                 this.page = new EventPage();
 
-                
+
                 console.log(value.link);
             }
         }
     );
+}
+_checkParams(){
+    let name = Helper.getParameterByName('name');
+    if(name){
+        alert(name);
+    }
+
 }
 }
 
