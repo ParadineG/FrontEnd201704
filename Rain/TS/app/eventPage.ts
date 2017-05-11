@@ -35,7 +35,8 @@ class EventPage extends Page {
                 
     }
     protected _bindEvents(){
-                                      // siin võiks olla pildil klikates tegevus .. (nt ava uuel lehel)
+            this._list.addEventListener('click', this._deletePerson.bind(this));
+                                     
     }
   
     protected _render(){
@@ -51,6 +52,23 @@ class EventPage extends Page {
         );
         this._list.innerHTML = people;
             }
-         
+         private _deletePerson(e:Event){
+             this._participant;
+             if(e.target && (e.target as Element).nodeName === 'BUTTON'){
+                 let element = (e.target as Element).parentElement;
+                 //let index = 0
+                // while((element=element.previousElementSibling)!= null) ++index;
+                let parent = element.parentElement;
+                let index = Array.prototype.indexOf.call(parent.children,element);
+                 this._participant.splice(index, 1);
+                 localStorage.setItem('people', JSON.stringify(this._participant));
+                 this._render();
+
+
+
+            //     console.log((e.target as Element).parentElement.innerHTML);
+            //   (e.target as Element).parentElement.outerHTML = '';
+             }
+         }
  } 
    
