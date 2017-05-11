@@ -2,33 +2,85 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
     <title>Raini leht</title>
-    <meta name="description" content="max 256 characters"
+    <link rel="icon" href="styles/favicons/favicon.ico" sizes="16x16">
+<!--JQUERY CDN-->
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+
+<!-- BOOTSTRAP CDN Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="max 256 characters">
+<!-- BEGIN Faviconid erinevatel seadmetel -->
+    <link rel="apple-touch-icon" sizes="57x57" href="styles/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="styles/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="styles/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="styles/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="styles/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="styles/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="styles/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="styles/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="styles/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="styles/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="styles/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="styles/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="styles/favicons/favicon-16x16.png">
+    <link rel="manifest" href="styles/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+<!-- END Faviconid erinevatel seadmetel -->
+
+<!-- BEGIN Facebookis kuvatav lehe info Open Graph - app_id tuleb facebooki arendaja lehel teha statiska või logimise jaoks-->
+    <meta property="fb:app_id" content="67527652365" /> 
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.neti.ee" />
+    <meta property="og:title" content="Raini leht" />
+    <meta property="og:description" content="Lehe kirjeldus" />
+    <meta property="og:image" content="http://pildiaadress" />
+<!-- END Facebookis kuvatav lehe info Open Graph-->
 </head>
 <body>
-<header>
-  <a href="/"><img src="http://www.carlogos.org/logo/Subaru-logo.jpg"></a>
-</header>    
-    <main>
-    <article id="artikkel">
-        <h1> Lorem Ipsum ÖÖBIK</h1>
-        <blockquote>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</blockquote>
-        <blockquote>"Ei ole ka kedagi, kes armastab ja otsib ja tahab valu iseennast, lihtsalt sellepärast, et see on valu..."</blockquote>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis dui urna. Fusce scelerisque ante eget urna vestibulum, ac venenatis ex aliquam. Integer nibh sem, consectetur sit amet libero quis, facilisis elementum tortor. In vel arcu eu ante malesuada sollicitudin. Phasellus a nibh lacus. Praesent tortor urna, imperdiet nec imperdiet at, eleifend in nunc. Vivamus eleifend a dolor id venenatis. Pellentesque vitae tellus sed dolor venenatis hendrerit. Vestibulum molestie purus quis ex interdum, vel tempus purus pretium.</p>
-        <p>Nulla ac lacus in felis pulvinar pulvinar. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum molestie interdum pretium. Nunc semper dui tortor, id efficitur urna pharetra nec. Nunc eu dignissim tortor. Aenean ante orci, bibendum eu sollicitudin a, tempor vitae mauris. Phasellus commodo metus velit, id pellentesque nisi rutrum in. Sed luctus eu mauris in elementum. Suspendisse aliquam nec turpis at consequat. Fusce ante velit, egestas sit amet velit eu, consequat consequat purus. Vestibulum vel felis ipsum. Vestibulum dui lacus, lacinia vel nulla eu, eleifend tincidunt justo. Aliquam lobortis massa ut efficitur feugiat. Nullam lacinia enim id libero convallis, in accumsan erat convallis. Duis auctor pellentesque eros, in fermentum augue tincidunt lacinia.</p>
+    <!--
+    <video poster="http://www.carlogos.org/logo/Subaru-logo.jpg" id="backvideo" autoplay muted loop playsinline>
+    <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4">
+    </video>
+    -->
+    <div id="wrapper">
+        <div id="kalk">
+             <var>
+                 X: <input id="sisend1" type="numbers"/>
+            </var>   
+            <var>
+                Y: <input id="sisend2" type="numbers"/>
+            </var>
+            =
+            <span id="vastus"></span>
 
-        <p>Nullam placerat ac odio ut rutrum. Morbi finibus quam ac risus sollicitudin, ac efficitur felis pellentesque. Nunc pellentesque, nisi a sagittis ornare, odio neque mattis lacus, sit amet vehicula turpis lectus in justo. Integer feugiat eu est ac congue. Praesent eget lectus ac elit venenatis bibendum sed ut urna. Fusce in commodo nunc. Sed fermentum, mi non tempus suscipit, felis risus imperdiet nulla, sit amet suscipit neque eros in felis.</p>
-
-        <p>Fusce ultrices, est nec fringilla rhoncus, velit nibh fringilla nisi, in semper nisl purus ac nulla. Curabitur finibus mauris sed magna vestibulum convallis. Sed mauris lectus, aliquam eleifend mauris vitae, malesuada pretium dui. Integer tincidunt imperdiet laoreet. Praesent in volutpat ligula. Nullam ac enim vitae purus lobortis rhoncus in at arcu. In id imperdiet velit, et ornare velit. Donec id massa consequat, maximus velit a, elementum nunc. Vestibulum hendrerit, velit et semper suscipit, mi mauris pharetra elit, vel eleifend nunc lacus ut dui. Fusce ut erat blandit, scelerisque tortor ut, porta augue. Etiam at enim eleifend, malesuada nibh sed, faucibus nulla. Etiam justo enim, aliquet varius facilisis id, feugiat quis tellus. In pellentesque, risus vel volutpat bibendum, sem metus gravida lacus, non auctor velit nisi nec libero. Sed non venenatis dolor.</p>
-
-        <p>Sed dignissim, nunc ut lobortis vestibulum, urna risus semper erat, vitae consequat dui ipsum in odio. Vestibulum at rutrum augue.
-        </p>
-    </article>
-    </main>
-
-    <nav>
-        <ul>
+        <a id="nupp" href="#" class="button">Nupuke</a>
+        <a href="#" class="button">Nupuke</a>
+        </div>
+    <!-- <div id="menyytyhiala"> </div>  -->
+      <header>
+<a href="/" id="teine"><img src="http://www.carlogos.org/logo/Subaru-logo.jpg" class="img-rounded" ></a>
+</header>
+     <nav class="navbar navbar-default navbar-fixed-top nav-pills">
+         <div class="container">
+        <ul class="nav nav-pills">
             <li>
                 <a href="#artikkel">Artikli algus</a>
             </li>
@@ -39,8 +91,82 @@
                 <a href="/">Home</a>
             </li>
         </ul>
+         </div>
     </nav>
-    <footer>
+
+    <main>
+
+   
+    
+    <!-- Schema on Google otsingumootori jaoks -->
+    <article id="artikkel" itemscope itemtype="http://schema.org/Article">
+        <h1 itemprop="name"> Lorem Ipsum ÖÖBIK</h1>
+        <br><span> Autor: </span><cite itemprop="author"> Antonio </cite>
+        <br><time datetime="2010-07-03" itemprop="datePublished">30-nes juuli 2010</time>
+
+        <blockquote>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</blockquote>
+        <blockquote>"Ei ole ka kedagi, kes armastab ja otsib ja tahab valu iseennast, lihtsalt sellepärast, et see on valu..."</blockquote>
+        <p itemprop="description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis dui urna. Fusce scelerisque ante eget urna vestibulum, ac venenatis ex aliquam. Integer nibh sem, consectetur sit amet libero quis, facilisis elementum tortor. In vel arcu eu ante malesuada sollicitudin. Phasellus a nibh lacus. Praesent tortor urna, imperdiet nec imperdiet at, eleifend in nunc. Vivamus eleifend a dolor id venenatis. Pellentesque vitae tellus sed dolor venenatis hendrerit. Vestibulum molestie purus quis ex interdum, vel tempus purus pretium.</p>
+        <p>Nulla ac lacus in felis pulvinar pulvinar. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum molestie interdum pretium. Nunc semper dui tortor, id efficitur urna pharetra nec. Nunc eu dignissim tortor. Aenean ante orci, bibendum eu sollicitudin a, tempor vitae mauris. Phasellus commodo metus velit, id pellentesque nisi rutrum in. Sed luctus eu mauris in elementum. Suspendisse aliquam nec turpis at consequat. Fusce ante velit, egestas sit amet velit eu, consequat consequat purus. Vestibulum vel felis ipsum. Vestibulum dui lacus, lacinia vel nulla eu, eleifend tincidunt justo. Aliquam lobortis massa ut efficitur feugiat. Nullam lacinia enim id libero convallis, in accumsan erat convallis. Duis auctor pellentesque eros, in fermentum augue tincidunt lacinia.</p>
+
+        <p>Nullam placerat ac odio ut rutrum. Morbi finibus quam ac risus sollicitudin, ac efficitur felis pellentesque. Nunc pellentesque, nisi a sagittis ornare, odio neque mattis lacus, sit amet vehicula turpis lectus in justo. Integer feugiat eu est ac congue. Praesent eget lectus ac elit venenatis bibendum sed ut urna. Fusce in commodo nunc. Sed fermentum, mi non tempus suscipit, felis risus imperdiet nulla, sit amet suscipit neque eros in felis.</p>
+
+        <p class="paragraph">Fusce ultrices, est nec fringilla rhoncus, velit nibh fringilla nisi, in semper nisl purus ac nulla. Curabitur finibus mauris sed magna vestibulum convallis. Sed mauris lectus, aliquam eleifend mauris vitae, malesuada pretium dui. Integer tincidunt imperdiet laoreet. Praesent in volutpat ligula. Nullam ac enim vitae purus lobortis rhoncus in at arcu. In id imperdiet velit, et ornare velit. Donec id massa consequat, maximus velit a, elementum nunc. Vestibulum hendrerit, velit et semper suscipit, mi mauris pharetra elit, vel eleifend nunc lacus ut dui. Fusce ut erat blandit, scelerisque tortor ut, porta augue. Etiam at enim eleifend, malesuada nibh sed, faucibus nulla. Etiam justo enim, aliquet varius facilisis id, feugiat quis tellus. In pellentesque, risus vel volutpat bibendum, sem metus gravida lacus, non auctor velit nisi nec libero. Sed non venenatis dolor.</p>
+
+        <p>Sed dignissim, nunc ut lobortis vestibulum, urna risus semper erat, vitae consequat dui ipsum in odio. Vestibulum at rutrum augue.
+        </p>
+
+<!-- Tabeli tegemine -->
+
+<table class="table table-bordered">
+    <caption>Raskused</caption>
+    <thead>
+        <tr>
+            <th>Mass</th>
+            <th>Hind</th>
+            <th>Muu</th>
+        </tr>
+    </thead>
+    <tfoot>
+         <tr>
+            <th>Mass</th>
+            <th>Hind</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td>79kg</td>
+            <td>350$</td>
+            <td>info</td>
+
+        </tr>
+        <tr>
+            <td>30kg</td>
+            <td>400$</td>
+        </tr>
+    </tbody>
+</table>
+
+
+    </article>
+    </main>
+<aside id="advideo">
+    <video controls>
+        <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4">
+        Ei toeta.
+    </video>
+    <figcaption>
+        Bunny video.
+    </figcaption>
+</aside> 
+   
+<aside>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1706.8151603498484!2d24.80040046061347!3d59.42045281443265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3ec9e9bca61ab260!2sIT+Koolitus!5e0!3m2!1sen!2see!4v1492762925888" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</aside>
+
+    <!-- Kommentaar -->
+    <footer id="footer1">
         <address>
             <a href="mailto:kellegi@meil.ee">kellegi@meil.ee</a><br>
             <a href="tel:+372111111">Tel: +372111111</a><br>
@@ -50,5 +176,7 @@
             Kuusk 1-2
         </address>
     </footer>
+    </div>
+<script src="scripts/script.js"></script>
 </body> 
 </html>

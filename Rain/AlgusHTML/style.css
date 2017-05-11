@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+body {
+    background-color: darkblue;
+    
+    
+}
+#artikkel{
+    background-color: bisque;
+    max-width: 1024px;
+
+
+}
+
+span{
+    font-size: 1.5em;
+}
+article{
+    font-size: 1em;
+    font-family: 'PT Sans', sans-serif;
+}
+.paragraph{
+    font-size: 0.5em;
+}
+nav ul li:nth-last-child(2){
+    border-width: 2px;
+    border-style: dashed; 
+}
+#footer1{
+    background-color: white;
+    height: 300px;
+    order: -1;
+
+}
+nav{
+    background: yellow;
+    font-size: 2em;
+    color: red;
+    display: inline-block;
+    /**display: flex;**/
+
+    /**position: fixed;
+    left:50px;
+    top: 20px;**/
+    padding: 0px 0px 10px 0px;
+}
+nav:first-of-type, #kalk{
+    align-self: flex-end;
+    /** flex-end praegu mõjutab ülevalt alla **/
+}
+#menyytyhiala{
+    height:200px;
+}
+
+header{
+    display: inline-block;
+}
+#wrapper{
+    display:flex;
+    /** flex reastab elamendid paremalt vaskule, tuleb määrata suund **/
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+.button{
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 32px; /**ruum nupu sees**/
+    text-align: center;
+    text-decoration: none;
+    /** decoration none võtab ära joone alt**/
+    display: block;
+    /** display: inline-block; - teeb paigutuse lihtsamaks**/
+    font-size: 2em;
+    margin: 5px 5px; /** ruum ümber nupu**/ 
+    cursor:pointer;
+    box-shadow: 5px 5px 5px darkgray; /** kolmas 5px määrab udususe**/
+}
+.button:hover{
+    box-shadow:  5px 5px 5px red;
+}
+#backvideo{
+    position: absolute;
+    /** või fixed**/
+    z-index: -100;
+    min-height: 100%;
+    min-width: 100%;
+    background: url(http://www.carlogos.org/logo/Subaru-logo.jpg);
+    background-size: cover;
+}
+
+@media (max-width:600px){
+    body{
+        background-color: yellow;
+    }
+}
+
+@media (min-width:600px) and (max-width: 1200px){
+    body{
+        background-color: green;
+    }
+}

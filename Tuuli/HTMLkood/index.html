@@ -1,55 +1,218 @@
 <!DOCTYPE html>
-<html>
+    <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
-    <!--SEO: ideaalne pikkus on 6 sõna-->
-    <title>Lehe pealkiri</title>
-    <meta name="description" content="max 256 characters">
+    <!--SEO: ideaalne pikkus 6 sõna -->
+    <title> Tarkvaraarenduse Front-end kursuse kodutöö</title>
+ <link rel="icon" href="styles/Favicons.favicon.ico" sizes="16x16">
+
+    <!--CSS kujunduse failiga seos -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <!--JavaScript interaktsioonide failiga seos -->
+    <link rel="script" href="scripts/script.js">
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#8c8b93">  <!--Kas see peaks muutma tab'i värvi?-->
+
+<script type="text/javascript">
+function pildiValik(){
+var pildiNr = Math.round(Math.random()*2);
+if (pildiNr == 0){
+document.getElementById('pilt').setAttribute('src', 'Pildid.LX.png');
+}
+if (pilt == 1){
+document.getElementById('pilt').setAttribute('src', 'Pildid.Emoticon_kohvipaus.png');
+}
+if (pilt == 2){
+document.getElementById('pilt').setAttribute('src', 'Pildid.Wrap.png');
+}
+}
+</script>
 </head>
+
+<header>
+
+<p> Tänane kuupäev:
+    <script type="text/javascript">
+var kuupaev = new Date();
+var paev = kuupaev.getDate();
+var kuu = kuupaev.getMonth();
+var aasta = kuupaev.getFullYear();
+document.write("<b>" + paev + "/" + (kuu + 1) + "/" + aasta + "</b>");
+</script></p> 
+
+<p> Kellaaeg:
+    <div id="kell"></div> <!--Kuhu see div panna, et oleks tekstiga samal real?-->
+    <script type="text/javascript">
+    
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('kell').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',500);
+}
+function checkTime(i)
+{
+if (i<10)
+{
+i="0" + i;
+}
+return i;
+}
+
+</script></p>
+      
+       
+</header>
 <body>
-    <header>
-            <a href="/"><img src="">https://www.bing.com/images/search?view=detailV2&ccid=IDb%2fbEsB&id=01EDBC5B076EECA6E6F5B5028301AB0424C4DBA6&thid=OIP.IDb_bEsBvQ7loptdFXV4CwEGEp&q=google+analy&simid=608048687734722508&selectedIndex=6</a>
-    </header>
-    <article id="artikkel">
-    <h1>Lorem ipsumi Ööbik</h1>
-  <q> Ipsum is simply dummy text of the printing and typesetting industry</q>
-    <p> Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<h1>Front-end arenduse kursus 19.04. - 12.05.2017</h1>
 
-    <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-    <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-    <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-</article>
+<p><a href="http://www.koolitus.ee/et/component/itk/c1881/ITK-497-Tarkvaraarenduse-Front-end?Itemid=199/">Programm</a></p>
 
-<nav>
-    <ul>
-        <li>
-            <a href="../../Andrjus/SimpleHTML/index.html">Andrjuse leht</a>
-        </li>
-        <li>
-            <a href="http://google.com"</a>
-        </li>
-        <li>
-            <a href="/">Pealehele</a>
-        </li>
-         <li>
-            Õun lingita tekst
-        </li>
-        <li>
-            <a href="#artikkel">Artikli algusesse</a>
+<h2>Kursusel kasutatud tehnoloogiad </h2>
+<ul>
+    <li><strong><a href="https://www.sourcetreeapp.com/">SourceTree</a></strong></li>
+    <li><em><a href="https://github.com/">GitHub</a></em></li>
+    <li><mark><a href="https://code.visualstudio.com/">Visual Studio Code</a></mark></li>
+    <li><del><a href="https://nodejs.org/en/">Node.js</a></del></li>
+</ul> 
 
-        </li>
-    </ul>
-</nav>
-<footer>
-    <address>
-        <a href="mailto:juku@mail.ee">juku@mail.ee</a>
-        <br>
-        <a href="tel:+3725532233">+3725532233</a>
-        </br>
-         Estonia 74011 <br>
-        Tamme tee 11
-    </address>
-</footer>
+   <p>
+    <!--An image that is a link-->
+<a href="KUIDAS_strong_em_mark__del_20170429.png">
+<img src="Emoticon_computer_free.gif" width="100" height="100" border="0">
+<alt> Ava juhis siin!</alt>
+</a>
+</p>
+
+        <img id="pilt" src="Emoticon_kohvipaus.png" alt="Juhuslikud pildid">
+        <img id="pilt" src="LX.png" alt="Juhuslikud pildid">
+        <img id="pilt" src="Wrap.png" alt="Juhuslikud pildid">
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rutrum sit amet libero vel tincidunt. Sed eu libero condimentum, tristique sem sit amet, fringilla risus. Aenean sed mi dapibus, convallis ex eu, consectetur neque. Nulla convallis eros nec felis pellentesque posuere. Proin fermentum, ante tempus auctor commodo, mauris risus bibendum nibh, vitae lacinia ante risus at enim. Vivamus viverra sodales sodales. Etiam sit amet dignissim lacus, non tristique tortor. 
+
+Praesent convallis sem in dignissim varius. Vivamus eget arcu nisl. Proin posuere sapien sed velit porta, eget sollicitudin justo fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam ornare massa id lorem ultrices, at varius nisl congue. Pellentesque pharetra, lectus ut aliquam finibus, ex diam sodales justo, eu consectetur odio dui a neque. Mauris quis rutrum enim. Phasellus varius malesuada libero, eget tempus dui tempus at. 
+
+Vestibulum maximus vestibulum augue in iaculis. Phasellus pellentesque eros massa. Praesent maximus nisl in urna iaculis condimentum. Sed vel cursus lectus. Fusce ac vestibulum libero. Cras euismod est vitae vehicula faucibus. Quisque eu pharetra nunc, et sagittis orci. Fusce blandit tellus non orci egestas, id consectetur turpis pharetra. Nullam facilisis quam sit amet risus facilisis sagittis. Aliquam erat volutpat. Phasellus imperdiet purus sit amet ante suscipit tempor. Sed sodales nibh nisl, aliquam tincidunt nisl vestibulum at. Sed leo elit, malesuada ut volutpat porta, dapibus eu lorem.
+</p>
+
+<h2>Kursusel õpitud keeled </h2>
+<ul>
+    <li><a href="https://www.w3schools.com/html/html5_intro.asp">HTML5</a></li>
+    <li><a href="https://www.w3schools.com/css/default.asp">CSS</a></li>
+    <li><a href="https://www.w3schools.com/js/">JavaScript</a></li>
+</ul> 
+
+<h2>Lisan suvalise pildi</h2>
+<p>Õpime koodi kirjutama. Kodutööks jäi vastavalt oskustele veebilehe loomine.</p>
+
+<div class="container">
+  <img src="Arvutiklass.jpg" alt="Arvutiklassis" width="600" height="393">
+  <div class="topright">See peaks pildi paremas nurgas olema:)</div>
+</div>
+
+<!--Kopisin suvalise registreerimisvormi koodi prooviks-->
+                                           <h3>REGISTREERI KOOLITUSELE</h3><div class="form"><div class="error-msg"><p class="mos_error">Pane tähele, et kõik lahtrid oleks täidetud.</p></div><script type="text/javascript">
+// <![CDATA[
+$(function(){
+var objForm = new ValidForm("form-event-application", "");
+objForm.addElement('form-event-application_secondary_middle_name', 'form-event-application_secondary_middle_name', /^[-a-zÃƒ ÃƒÂ¡ÃƒÂ¢ÃƒÂ£ÃƒÂ¤ÃƒÂ¥ÃƒÂ¦ÃƒÂ§ÃƒÂ¨ÃƒÂ©ÃƒÂªÃƒÂ«ÃƒÂ¬ÃƒÂ­ÃƒÂ®ÃƒÂ¯ÃƒÂ°ÃƒÂ±ÃƒÂ²ÃƒÂ³ÃƒÂ´ÃƒÂµÃƒÂ¶ÃƒÂ¸ÃƒÂ¹ÃƒÂºÃƒÂ»ÃƒÂ¼ÃƒÂ½Ã¢â€šÂ¬0-9\s*\.'\/",_()|& ]*$/i, true, null, null, '', '', '', 'The value is the hint value. Enter your own value.', 'The input is too short. The minimum is null characters.', 'The input is too long. The maximum is null characters.');
+objForm.addElement('form-event-application_company', 'form-event-application_company', /^[-a-zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß€0-9%\s*.'+\/",_!?:()|& ]*$/i, true, 250, null, '', '', 'Required', 'The value is the hint value. Enter your own value.', 'The input is too short. The minimum is null characters.', 'Character limit 250');
+objForm.addElement('form-event-application_first_name', 'form-event-application_first_name', /^[-a-zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß€0-9%\s*.'+\/",_!?:()|& ]*$/i, true, 250, null, '', '', 'Required', 'The value is the hint value. Enter your own value.', 'The input is too short. The minimum is null characters.', 'Character limit 250');
+objForm.addElement('form-event-application_last_name', 'form-event-application_last_name', /^[-a-zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß€0-9%\s*.'+\/",_!?:()|& ]*$/i, true, 250, null, '', '', 'Required', 'The value is the hint value. Enter your own value.', 'The input is too short. The minimum is null characters.', 'Character limit 250');
+objForm.addElement('form-event-application_telephone', 'form-event-application_telephone', /^[-a-zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýß€0-9%\s*.'+\/",_!?:()|& ]*$/i, true, 250, null, '', '', 'Required', 'The value is the hint value. Enter your own value.', 'The input is too short. The minimum is null characters.', 'Character limit 250');
+objForm.addElement('form-event-application_email_address', 'form-event-application_email_address', /^[^@\s]+@([-a-z0-9]+\.)+[a-z]{2,}$/i, true, 250, null, '', 'Invalid email address', 'Required', 'The value is the hint value. Enter your own value.', 'The input is too short. The minimum is null characters.', 'Character limit 250');
+objForm.addEvent("submit", 
+            function() {
+                if(objForm.valid && 'undefined' !== typeof _gaq) {
+                    _gaq.push(['_trackEvent', 'Form Submission', 'Successful Submission', 'Event application form']);
+                }
+            }
+        );
+});
+// ]]>
+</script>
+<form id="form-event-application" method="post" enctype="multipart/form-data" action="????????????????????????????????" class="mos_form">
+<fieldset>
+<p class="vf__error"></p><input checked type="radio" value="ceBFEfdDAFBaBEaeEDCeaeEfEdD155" name="form-event-application_secondary_middle_name" id="form-event-application_secondary_middle_name"  class="vf_no" style="position:absolute;top:-50000px;left:-50000px;z-index:-500;display:none;width: 0px;height: 0px;" />
+<input type="text" value="" name="form-event-application_secondary_middle_name_e" id="form-event-application_secondary_middle_name_e" class="vf_no" style="position:absolute;top:-50000px;left:-50000px;z-index:-500;display:none;width: 0px;height: 0px;"  />
+</fieldset>
+<fieldset class="mandatory">
+<div class="mos_content">
+<p>Täida kõik väljad</p>
+</div>
+</fieldset>
+<fieldset>
+<div class="mos_required">
+<label for="form-event-application_company">Ettevõte</label>
+<input type="text" value="" name="form-event-application_company" id="form-event-application_company"  class="mos_text" />
+</div>
+<div class="mos_required">
+<label for="form-event-application_first_name">Eesnimi</label>
+<input type="text" value="" name="form-event-application_first_name" id="form-event-application_first_name"  class="mos_text" />
+</div>
+<div class="mos_required">
+<label for="form-event-application_last_name">Perenimi</label>
+<input type="text" value="" name="form-event-application_last_name" id="form-event-application_last_name"  class="mos_text" />
+</div>
+<div class="mos_required">
+<label for="form-event-application_telephone">Telefon</label>
+<input type="text" value="" name="form-event-application_telephone" id="form-event-application_telephone"  class="mos_text" />
+</div>
+<div class="mos_required">
+<label for="form-event-application_email_address">Email</label>
+<input type="text" value="" name="form-event-application_email_address" id="form-event-application_email_address"  class="mos_text" />
+</div>
+</fieldset>
+
+<div class="mos_navigation">
+<input type="hidden" name="vf__dispatch" value="form-event-application" />
+<input type="submit" value="REGISTER" class="mos_button " />
+</div>
+</form>
+<!--Kopitud koodi lõpp_ühelt lehelt registreerimisvormi koodi prooviks-->
+
 </body>
+ <footer>
+            <address>
+                <a href="mailto:eioleminu">eioleminu@mail.ee</a><br>
+                <a href="tel:+3725000000"> +3725000000</a><br>
+                Estonia 59011 <br>
+                Kodu vald <br>
+                Oma tee 1
+            </address>    
+        </footer>
+</html> 
 
-</html>
+<!--Kunagi soovitati kasutada nii?????????
+    <p>
+<script type="text/javascript">
+kasutaja="eioleminu"; /*ei ole reaalne aadress*/
+server="gmail.com";
+document.write('Minu e-posti aadress on: ');
+document.write('<a href="mailto:' + kasutaja + '@' + server + '">');
+document.write(kasutaja + '@' + server +'</a>');
+</script>
+</p>
+-->
