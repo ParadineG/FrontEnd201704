@@ -1,3 +1,13 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 console.log('animals.ts');
 /**
  * Animals
@@ -71,6 +81,65 @@ var Helper;
     }
     Helper.parseHTMLString = parseHTMLString;
 })(Helper || (Helper = {}));
+console.log('page.ts');
+/**
+ * Page
+ */
+var Page = (function () {
+    function Page() {
+    }
+    Page.prototype._cacheDOM = function () {
+    };
+    Page.prototype._bindEvents = function () {
+    };
+    Page.prototype._render = function () {
+    };
+    return Page;
+}());
+/// <reference path='helper.ts' /> 
+/// <reference path='page.ts' />
+var Gallery = (function (_super) {
+    __extends(Gallery, _super);
+    function Gallery() {
+        var _this = _super.call(this) || this;
+        _this._pictures = [{ title: 'Auto', description: 'Üks Auto', link: 'Auto.jpg' },
+            { title: 'Taevas', description: 'Üks Taevas', link: 'Taevas.jpg' },
+            { title: 'Taevas2', description: 'Üks Taevas2', link: 'Taevas2.jpg' },
+            { title: 'Tilgad', description: 'Üks Tilgad', link: 'Tilgad.jpg' },
+            { title: 'Tilk', description: 'Üks Tilk', link: 'Tilk.jpg' },
+            { title: 'TuhmSulps', description: 'Üks TuhmSulps', link: 'TuhmSulps.jpg' },
+            { title: 'TuhmSulps2', description: 'Üks TuhmSulps2', link: 'TuhmSulps2.jpg' },
+            { title: 'VeeSulps', description: 'Üks VeeSulps', link: 'VeeSulps.jpg' },
+            { title: 'VeeSulps2', description: 'Üks VeeSulps2', link: 'VeeSulps2.jpg' },
+            { title: 'VeeT6us', description: 'Üks VeeT6us', link: 'VeeT6us.jpg' }];
+        _this._cacheDOM();
+        _this._bindEvents();
+        _this._render();
+        return _this;
+    }
+    Gallery.prototype._cacheDOM = function () {
+        this._template = Helper.getHTMLTemplate("templates/gallery-template.html");
+        this._picsModule = document.querySelector('main');
+        this._picsModule.outerHTML = this._template;
+        this._picsModule = document.getElementById('gallery');
+        this._microTemplate = this._picsModule.querySelector('script').innerText;
+        this._list = this._picsModule.querySelector('#images');
+    };
+    Gallery.prototype._bindEvents = function () {
+    };
+    Gallery.prototype._render = function () {
+        var _this = this;
+        var pics = '';
+        this._pictures.forEach(function (value) {
+            var parsePass1 = Helper.parseHTMLString(_this._microTemplate, '{{caption}}', value.title);
+            var parsePass2 = Helper.parseHTMLString(parsePass1, '{{alternative}}', value.description);
+            var parsePass3 = Helper.parseHTMLString(parsePass2, '{{source}}', 'images/' + value.link);
+            pics += parsePass3;
+        });
+        this._list.innerHTML = pics;
+    };
+    return Gallery;
+}(Page));
 /// <reference path='helper.ts' /> 
 var Navigation = (function () {
     function Navigation(navs) {
@@ -109,6 +178,7 @@ var Navigation = (function () {
 }());
 /// <reference path='helper.ts' /> 
 /// <reference path='navigation.ts' /> 
+/// <reference path='gallery.ts' /> 
 /// <reference path='animals.ts' /> 
 console.log('main.ts');
 var App = (function () {
@@ -126,6 +196,7 @@ var App = (function () {
         if (window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
         var nav = new Navigation(this._navLinks);
+        this._urlChanged();
         var animals = new Animals();
         /*
             animals.showAnimals();
@@ -138,11 +209,16 @@ var App = (function () {
             })();
         */
     };
-    App.prototype._urlChanged = function (e) {
+    App.prototype._urlChanged = function () {
+        var _this = this;
         this._navLinks.forEach(function (value) {
             if (window.location.hash === value.link) {
-                //if(value.link === )
-                //this.page = new Gallery();
+                if (value.link === _this._navLinks[0].link)
+                    _this.page = new Gallery(); //
+                else if (value.link === _this._navLinks[1].link)
+                    _this.page = new Gallery();
+                else if (value.link === _this._navLinks[2].link)
+                    _this.page = new Gallery(); //
                 console.log(value.link);
             }
         });
@@ -151,19 +227,4 @@ var App = (function () {
 }());
 var app = new App();
 console.log('Hello');
-console.log('page.ts');
-/**
- * Page
- */
-var Page = (function () {
-    function Page() {
-    }
-    Page.prototype._cacheDOM = function () {
-    };
-    Page.prototype._bindEvents = function () {
-    };
-    Page.prototype._render = function () {
-    };
-    return Page;
-}());
 //# sourceMappingURL=app.js.map
