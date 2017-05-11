@@ -9,6 +9,12 @@ namespace Helper{
          return decodeURIComponent(results[2]).replace(/\+/g,' ');
     }
 
+    export function removeParams(){
+        window.location.href=window.location.origin+window.location.hash; //uuendab linki aga ei jäta meelde aadressi real nime
+
+    }
+
+
     export function onParameterChange(callback) {                       // vaatab kas URL aadress muutub või mitte
         var currentPage = window.location.href;
         setInterval(()=>{

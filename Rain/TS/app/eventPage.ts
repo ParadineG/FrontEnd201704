@@ -18,9 +18,7 @@ class EventPage extends Page {
         this._render();
         
     }
-    private _participant : Participant[] = [{name: 'Juku Kalle', joined: 'Yes'},
-                                             {name: 'Madis Toru', joined: 'No'},
-                                             {name: 'Mati Tamm', joined: 'Yes'}];
+    private _participant : Participant[]  ;
         
     private _template : string;
     private _microTemplate : string;
@@ -41,6 +39,7 @@ class EventPage extends Page {
     }
   
     protected _render(){
+        this._participant = JSON.parse(localStorage.getItem('people'));
       let people = '';
         this._participant.forEach(
             (value: Participant) => {

@@ -21,8 +21,9 @@ class App{
         if(window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
         let nav = new Navigation(this._navLinks);
-        this._urlChanged();
         this._checkParams();
+        this._urlChanged();
+        
         Helper.onParameterChange(()=>{
                 alert('Tere');
         });
@@ -63,6 +64,7 @@ _checkParams(){
     let name = Helper.getParameterByName('name');
     let joined = Helper.getParameterByName('joined') as Joined;
     if(name && joined){
+        Helper.removeParams();                        //removeParams ise asub helper.ts-is
         let people : Participant[] = JSON.parse(localStorage.getItem('people'));
         if(!people){
             people = [];
