@@ -61,8 +61,18 @@ _urlChanged(){
 }
 _checkParams(){
     let name = Helper.getParameterByName('name');
-    if(name){
-        alert(name);
+    let joined = Helper.getParameterByName('joined') as Joined;
+    if(name && joined){
+        let people : Participant[] = JSON.parse(localStorage.getItem('people'));
+        if(!people){
+            people = [];
+        }
+            let person : Participant = {name: name, joined: joined};
+            people.push(person);
+            console.log(people);
+            localStorage.setItem('people', JSON.stringify(people));
+        
+        // alert(name);
     }
 
 }
