@@ -30,10 +30,10 @@ async function getPage(file: string, loomaNimi: string){
     await xmlhttp.send();
 
     let li = document.createElement('li');
-    loomHTML = loomHTML.replace("{{nimi}}", loomaNimi)
+    loomHTML.replace("{{nimi}}", loomaNimi)
     li.innerHTML = loomHTML;
-    //let child =  li.children[0] as HTMLAnchorElement;
-   // child.href = "http://google.com";
+    let child =  li.children[0] as HTMLAnchorElement;
+    child.href = "http://google.com";
     li.getElementsByTagName('span').item(0).innerText = loomaNimi;
     nimekiri.push(li);
     //document.getElementById("wrapper").innerHTML = loomHTML;
