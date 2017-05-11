@@ -1,6 +1,7 @@
 /// <reference path='helper.ts' /> 
 /// <reference path='navigation.ts' /> 
 /// <reference path='gallery.ts' /> 
+/// <reference path='eventpage.ts' /> 
 /// <reference path='animals.ts' /> 
 console.log('main.ts');
 
@@ -20,7 +21,8 @@ class App {
         if(window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
         let nav = new Navigation(this._navLinks);
-         this._urlChanged();
+
+        this._urlChanged();
         let animals = new Animals();
         /*
             animals.showAnimals();
@@ -34,6 +36,7 @@ class App {
         */
     }
     _urlChanged(){
+        Helper.formatEmails('at-email', '(ät)');
         this._navLinks.forEach(
             (value: NavLink)=>{
                 if(window.location.hash === value.link){
@@ -42,7 +45,7 @@ class App {
                     else if(value.link === this._navLinks[1].link)
                         this.page = new Gallery();
                     else if(value.link === this._navLinks[2].link)
-                        this.page = new Gallery();//
+                        this.page = new EventPage();//
 
                     console.log(value.link);
                 }
