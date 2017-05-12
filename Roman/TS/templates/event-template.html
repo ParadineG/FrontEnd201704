@@ -13,4 +13,45 @@
         </li>
     </script>
     <!--<template></template>-->
+    <form action="" method="GET">
+        <!--
+            <fieldset>
+                <legend>Ajutine</legend>
+                <label for="textArea">Textiala*:</label>
+                <textarea required spellcheck id="textArea" name="textArea"></textarea>
+                <textarea readonly id="textArea2">Tere</textarea>
+                <fieldset>
+                    <input type="radio" name="size" id="size_1">
+                    <label for="size_1">Väike</label><br>
+                    <input type="radio" name="size" id="size_2">
+                    <label for="size_2">Keskmine</label><br>
+                    <input type="radio" name="size" id="size_3">
+                    <label for="size_3">Suur</label><br>
+                </fieldset>
+                <label for="email">Email:</label>
+                <input autocomplete type="email" name="email" id="email"><br>
+                <label for="email2">Email:</label>
+                <input readonly type="email" name="email2" 
+                    id="email" value="juku@mail.ee"><br>
+                <label for="color">Värv:</label>
+                <input type="color" name="color" id="color"><br>
+                <label for="pass">Parool:</label>
+                <input autofocus type="password" name="pass" id="pass"><br>
+            </fieldset>
+        -->
+        <fieldset>
+            <legend>Registreerimise vorm:</legend>
+            <label for="personName">Täisnimi:</label>
+            <input required type="text" name="name" id="personName"><br>
+            <label for="joined">Kas liitud:</label>
+            <select id="joined" name="joined">
+                <option value="No">Ei</option>
+                <option value="Maybe">Võibolla</option>
+                <option value="Yes">Jah</option>
+            </select>
+        </fieldset>
+        <!--<input type="submit" value="Saada">-->
+        <button type="submit">Saada</button>
+        <label>* - kohustuslik</label>
+    </form>
 </main>

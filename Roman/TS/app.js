@@ -62,6 +62,32 @@ var Animals = (function () {
 }());
 var Helper;
 (function (Helper) {
+    function getParameterByName(name) {
+        var url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        var results = regex.exec(url);
+        if (!results)
+            return null;
+        if (!results[2])
+            return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    Helper.getParameterByName = getParameterByName;
+    function removeParams() {
+        window.location.href = window.location.origin + window.location.hash;
+    }
+    Helper.removeParams = removeParams;
+    function onParameterChange(callBack) {
+        var currentPage = window.location.href;
+        setInterval(function () {
+            if (currentPage != window.location.href) {
+                currentPage = window.location.href;
+                callBack();
+            }
+        }, 500);
+    }
+    Helper.onParameterChange = onParameterChange;
     function formatEmails(className, splitter) {
         var emails = document.getElementsByClassName(className);
         for (var index = 0; index < emails.length; ++index) {
@@ -76,7 +102,6 @@ var Helper;
         var templateHTML = 'fail';
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function () {
-            console.log(this.status);
             if (this.readyState === 4 && this.status === 200) {
                 templateHTML = this.responseText;
             }
@@ -110,9 +135,6 @@ var EventPage = (function (_super) {
     __extends(EventPage, _super);
     function EventPage() {
         var _this = _super.call(this) || this;
-        _this._participant = [{ name: 'Juku Salument', joined: 'Yes' },
-            { name: 'Kalle Lomp', joined: 'No' },
-            { name: 'Mari Tamm', joined: 'Yes' }];
         _this._cacheDOM();
         _this._bindEvents();
         _this._render();
@@ -127,9 +149,11 @@ var EventPage = (function (_super) {
         this._list = this._peopleModule.querySelector('ul');
     };
     EventPage.prototype._bindEvents = function () {
+        this._list.addEventListener('click', this._deletePerson.bind(this));
     };
     EventPage.prototype._render = function () {
         var _this = this;
+        this._participant = JSON.parse(localStorage.getItem('people'));
         var people = '';
         this._participant.forEach(function (value) {
             var parsePass1 = Helper.parseHTMLString(_this._microTemplate, '{{name}}', value.name);
@@ -137,6 +161,17 @@ var EventPage = (function (_super) {
             people += parsePass2;
         });
         this._list.innerHTML = people;
+    };
+    EventPage.prototype._deletePerson = function (e) {
+        if (e.target && e.target.nodeName === 'BUTTON') {
+            var element = e.target.parentElement;
+            var parent_1 = element.parentElement;
+            var index = Array.prototype.indexOf.call(parent_1.children, element);
+            this._participant.splice(index, 1);
+            localStorage.setItem('people', JSON.stringify(this._participant));
+            this._render();
+            //(e.target as Element).parentElement.outerHTML = '';
+        }
     };
     return EventPage;
 }(Page));
@@ -184,6 +219,42 @@ var Gallery = (function (_super) {
     };
     return Gallery;
 }(Page));
+/// <reference path='animals.ts' /> 
+/// <reference path='helper.ts' /> 
+/// <reference path='page.ts' />
+var Home = (function (_super) {
+    __extends(Home, _super);
+    function Home() {
+        var _this = _super.call(this) || this;
+        _this._cacheDOM();
+        _this._bindEvents();
+        _this._render();
+        return _this;
+    }
+    Home.prototype._cacheDOM = function () {
+        this._template = Helper.getHTMLTemplate("templates/home-template.html");
+        this._homeModule = document.querySelector('main');
+        this._homeModule.outerHTML = this._template;
+        this._homeModule = document.getElementById('home');
+        this._button = this._homeModule.querySelector('#refresh');
+        this._list = this._homeModule.querySelector('#restOutput');
+        var animals = new Animals();
+        this._refresh();
+    };
+    Home.prototype._bindEvents = function () {
+        this._button.addEventListener('click', this._refresh.bind(this));
+    };
+    Home.prototype._render = function () {
+        this._list.innerHTML = 'Id: ' + this._restJSON.id +
+            ' Sisu: ' + this._restJSON.content;
+    };
+    Home.prototype._refresh = function () {
+        var restAnswer = Helper.getHTMLTemplate('http://rest-service.guides.spring.io/greeting');
+        this._restJSON = JSON.parse(restAnswer);
+        this._render();
+    };
+    return Home;
+}(Page));
 /// <reference path='helper.ts' /> 
 var Navigation = (function () {
     function Navigation(navs) {
@@ -222,9 +293,9 @@ var Navigation = (function () {
 }());
 /// <reference path='helper.ts' /> 
 /// <reference path='navigation.ts' /> 
+/// <reference path='home.ts' /> 
 /// <reference path='gallery.ts' /> 
 /// <reference path='eventpage.ts' /> 
-/// <reference path='animals.ts' /> 
 console.log('main.ts');
 var App = (function () {
     function App() {
@@ -241,8 +312,8 @@ var App = (function () {
         if (window.location.hash === '')
             window.location.hash = this._navLinks[0].link;
         var nav = new Navigation(this._navLinks);
+        this._checkParams();
         this._urlChanged();
-        var animals = new Animals();
         /*
             animals.showAnimals();
             animals.addAnimal('Lehm');
@@ -260,7 +331,7 @@ var App = (function () {
         this._navLinks.forEach(function (value) {
             if (window.location.hash === value.link) {
                 if (value.link === _this._navLinks[0].link)
-                    _this.page = new Gallery(); //
+                    _this.page = new Home(); //
                 else if (value.link === _this._navLinks[1].link)
                     _this.page = new Gallery();
                 else if (value.link === _this._navLinks[2].link)
@@ -268,6 +339,21 @@ var App = (function () {
                 console.log(value.link);
             }
         });
+    };
+    App.prototype._checkParams = function () {
+        var name = Helper.getParameterByName('name');
+        var joined = Helper.getParameterByName('joined');
+        if (name && joined) {
+            Helper.removeParams();
+            var people = JSON.parse(localStorage.getItem('people'));
+            if (!people) {
+                people = [];
+            }
+            var person = { name: name, joined: joined };
+            people.push(person);
+            console.log(people);
+            localStorage.setItem('people', JSON.stringify(people));
+        }
     };
     return App;
 }());

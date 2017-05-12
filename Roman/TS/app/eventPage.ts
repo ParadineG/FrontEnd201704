@@ -14,9 +14,7 @@ class EventPage extends Page {
         this._bindEvents();
         this._render();
     }
-    private _participant : Participant[] = [{name:'Juku Salument', joined:'Yes'}, 
-                                            {name:'Kalle Lomp', joined:'No'},
-                                            {name:'Mari Tamm', joined:'Yes'}];
+    private _participant : Participant[];
     private _template : string;
     private _microTemplate : string;
     private _peopleModule : Element;
@@ -31,9 +29,10 @@ class EventPage extends Page {
         this._list = this._peopleModule.querySelector('ul');
     }
     protected _bindEvents(){
-
+        this._list.addEventListener('click', this._deletePerson.bind(this));
     }
     protected _render(){
+        this._participant = JSON.parse(localStorage.getItem('people'));
         let people = '';
         this._participant.forEach(
             (value: Participant)=>{
@@ -43,5 +42,16 @@ class EventPage extends Page {
             }
         );
         this._list.innerHTML = people;
+    }
+    private _deletePerson(e:Event){
+        if(e.target && (e.target as Element).nodeName === 'BUTTON'){
+            let element = (e.target as Element).parentElement;
+            let parent = element.parentElement;
+            let index = Array.prototype.indexOf.call(parent.children, element);
+            this._participant.splice(index, 1);
+            localStorage.setItem('people', JSON.stringify(this._participant));
+            this._render();
+            //(e.target as Element).parentElement.outerHTML = '';
+        }
     }
 }
