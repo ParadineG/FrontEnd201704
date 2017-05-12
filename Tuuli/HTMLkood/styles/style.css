@@ -1,20 +1,32 @@
 
-header {
-    background-color: #85bbb9;
-    background-attachment: fixed;
-    font-family: arial;
-    color:#ffffff;
-    text-orientation: center;
-    margin-left:auto; margin-right:auto;
-}
-
 body {
-    font-family: arial;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 500px;
+    margin: auto;
+    
+}
+    /*font-family: arial;
     color:#435A58;
     margin-top: 100px;
     margin-bottom: 100px;
     margin-right: 250px;
-    margin-left: 250px;
+    margin-left: 10px;*/
+
+
+/*@media (max-width: 1200px)
+body {
+    margin-left:auto; margin-right:auto;
+}*/
+header {
+    background-color: #85bbb9;
+    /*background-attachment: fixed;*/
+    font-family: arial;
+    color:#ffffff;
+    text-orientation: center;
+    max-width: 1200px;
 }
 
 h1{
@@ -77,6 +89,46 @@ img.Arvutiklass.topright {
     right: 16px;
     font-size: 18px;
 }
+#kontakt{
+    text-orientation: center;
+}
+
+form li {  
+list-style: none;  
+margin-bottom: 5px;  
+}  
+  
+form ul li label{  
+float: left;  
+clear: left;  
+width: 100px;  
+text-align: right;  
+margin-right: 10px;  
+font-family:Verdana, Arial, Helvetica, sans-serif;  
+font-size:14px;  
+}  
+  
+form ul li input, select, span {  
+float: left;  
+margin-bottom: 10px;  
+}  
+  
+form textarea {  
+float: left;  
+width: 350px;  
+height: 150px;  
+}  
+  
+[type="submit"] {  
+clear: left;  
+margin: 20px 0 0 230px;  
+font-size:18px  
+}  
+  
+p {  
+margin-left: 70px;  
+font-weight: bold;  
+}  
 
 footer {
 background-color: #85bbb9;
@@ -87,5 +139,3 @@ margin-left:auto; margin-right:auto;
 padding: 20px;
 border: 3px solid #ffffff;
 }
-
-
