@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "strictNullChecks": false,
+        "sourceMap": true,
+        "baseUrl": "./app.js",
+        "lib": ["dom", "es5", "es2015.promise"],
+        "outFile": "./app.js"
+    },
+    "compileOnSave": true,
+    "files": [
+        "app/main.ts",
+        "app/highlighter.ts",
+        "app/helper.ts"
+    ]
+}

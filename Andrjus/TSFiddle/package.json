@@ -1,0 +1,18 @@
+{
+  "name": "tsfiddle",
+  "version": "1.0.0",
+  "description": "Typescript fiddling",
+  "main": "index.html",
+  "dependencies": {
+    "typescript": "^2.3.2"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "scripts": {
+    "start": "lite-server -port 3000",
+    "test": "npm run start"
+  },
+  "author": "",
+  "license": "ISC"
+}

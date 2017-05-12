@@ -1,0 +1,19 @@
+.figure-img {
+  max-width: 400px;
+}
+
+.crop {
+  max-width: 400px;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.crop img {
+  width: 300px;
+  height: 300px;
+  margin: -25px 0 0 -50px;
+}
+
+main {
+  margin-top: 25px;
+}
