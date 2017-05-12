@@ -1,8 +1,8 @@
 /// <reference path="helper.ts"/>
 /// <reference path="navigation.ts"/>
 /// <reference path="gallery.ts"/>
-/// <reference path="animals.ts"/> 
 /// <reference path="eventPage.ts"/> 
+/// <reference path="home.ts"/> 
 // ---see määrab ära et helper.ts peaks olema enne kui animals.ts
 console.log("main.ts");
 class App{
@@ -27,7 +27,7 @@ class App{
         Helper.onParameterChange(()=>{
                 alert('Tere');
         });
-        let animals = new Animals();
+  
 /* animals.showAnimals();
 animals.addAnimals('lehm');
 animals.showAnimals();
@@ -48,7 +48,7 @@ _urlChanged(){
         (value: NavLink) =>{
             if(window.location.hash === value.link){
                 if(value.link === this._navLinks[0].link)
-                this.page = new Gallery();//
+                this.page = new Home();//
                 else if(value.link === this._navLinks[1].link)
                  this.page = new Gallery();
                 else if(value.link === this._navLinks[2].link)
