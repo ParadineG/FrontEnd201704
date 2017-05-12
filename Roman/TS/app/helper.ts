@@ -33,7 +33,6 @@ namespace Helper{
         let templateHTML = 'fail';
         let xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() {
-            console.log(this.status);
             if(this.readyState === 4 && this.status === 200){
                 templateHTML = this.responseText;
             }

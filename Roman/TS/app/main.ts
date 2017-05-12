@@ -1,8 +1,8 @@
 /// <reference path='helper.ts' /> 
 /// <reference path='navigation.ts' /> 
+/// <reference path='home.ts' /> 
 /// <reference path='gallery.ts' /> 
 /// <reference path='eventpage.ts' /> 
-/// <reference path='animals.ts' /> 
 console.log('main.ts');
 
 class App {
@@ -23,7 +23,7 @@ class App {
         let nav = new Navigation(this._navLinks);
         this._checkParams();
         this._urlChanged();
-        let animals = new Animals();
+        
         /*
             animals.showAnimals();
             animals.addAnimal('Lehm');
@@ -41,7 +41,7 @@ class App {
             (value: NavLink)=>{
                 if(window.location.hash === value.link){
                     if(value.link === this._navLinks[0].link)
-                        this.page = new Gallery();//
+                        this.page = new Home();//
                     else if(value.link === this._navLinks[1].link)
                         this.page = new Gallery();
                     else if(value.link === this._navLinks[2].link)
