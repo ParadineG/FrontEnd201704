@@ -1,0 +1,43 @@
+<main id="event">
+    <ul id="people">
+    </ul>
+    <script id="eventTemplate" type="text/template">
+        <li class="peopleItem">
+            <span>
+                {{name}}
+            </span>
+            <span>
+                {{joined}}
+            </span>
+            <button>X</button>
+        </li>
+    </script>
+    <!--<template></template>-->
+    <form action="" method="GET">
+        <!--<fieldset>
+            <legend>Ajutine</legend>
+            <label for="textArea">Textarea</label>
+            <textarea id="textArea" name="TextArea"></textarea>
+        </fieldset> -->
+        <fieldset>
+            <legend>Registreerimise vorm:</legend>
+        <label for="personName">Täisnimi:</label>
+        <input type="text" name="name" id="personName"><br>
+        </fieldset>
+        <fieldset>
+        <label for="email">Email:</label>
+        <input autocomplete type="email" name="email" id="email"><br>
+        <label for="color">Värv:</label>
+        <input type="color" name="color" id="color"><br>
+         <!--<input type="submit" value="Saada">-->
+        <label for="joined"> Kas liitud:</label>
+        <select id="Joined" name="joined">
+        <option value="No">Ei</option>
+        <option value="Maybe">Võibolla</option>
+        <option value="Yes">Jah</option>
+        </select>
+        </fieldset>
+        <button type="submit">Saada:
+        <!--<input type"submit value="Saada">--> 
+</form>
+</main>

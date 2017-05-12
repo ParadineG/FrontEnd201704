@@ -1,0 +1,42 @@
+@inport url('https')
+body {
+    background-color:palegoldenrod;
+}
+article{
+    font-size: 2em;
+}
+#artikkel{
+background-color:peachpuff;
+}
+    max-width: 1024px;
+    /*px, %, pt, em, rem*/
+}
+span{ font-size: 3em;
+}
+.paragraph{ font-size: 0,8em;
+}
+nav ul li:nth-last-child(){
+    border-width: 2em;
+    border-style: dashed; 
+    }
+    nav{
+    background-color: indianred;
+    font-size: 2em;
+    color: slateblue;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    z-index: -1px;
+    }
+    #menyyTyhiAla{
+        height:200px;
+    }
+    <div>
+
+    </div>
+{
+  position: relative; /* This protects the inner element from being blurred */
+  padding: 100px;
+  background-color;
+}
+
